@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row news-detail">
+        <div class="col-xs-12">
+            <section>
+                <h4 ng-bind="content.title"></h4>
+                <span>
+                    <a ng-href="#/news/column/101" class="txt-blue">{{content.contentColumn.title}}</a> &nbsp;&nbsp;&nbsp;&nbsp;{{content.eventTime|date:'yyyy-MM-dd HH:mm'}}&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </section>
+        </div>
+
+        <div class="col-xs-12" style="margin-top: 30px;">
+            <div class="content" ng-bind-html="contentHtml"></div>
+        </div>
+    </div>
+</div>

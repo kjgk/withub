@@ -480,3 +480,15 @@ a:hover {
     color: #1a1a1a;
 }
 
+.news-detail section {
+    padding-top: 24px;
+}
+
+.news-detail section h4 {
+    font-size: 24px;
+}
+
+.news-detail .content {
+    font-size: 16px;
+}
+

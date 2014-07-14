@@ -1,3 +1,30 @@
 <div class="container">
-    <ui-view></ui-view>
+    <div class="row news-column">
+        <div class="col-xs-12">
+            <div class="roll">
+                <section>
+                    <h4 ng-bind="roll.title"></h4>
+                <span>
+                    <a ng-href="#/news/column/101" class="txt-blue">{{roll.contentColumn.title}}</a> &nbsp;&nbsp;&nbsp;&nbsp;{{roll.eventTime|date:'yyyy-MM-dd HH:mm'}}&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+
+                    <p ng-bind="roll.title"></p>
+                    <a ui-sref="{{'news.detail'}}({id:roll.id})" class="btn btn-blue">查看更多</a>
+                </section>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6" ng-repeat="x in contentList">
+            <section>
+                <h4 ng-bind="x.title"></h4>
+            <span>
+                <a href="#/news" class="txt-blue">{{x.contentColumn.title}}</a> &nbsp;&nbsp;&nbsp;&nbsp;{{x.eventTime|date:'yyyy-MM-dd HH:mm'}}&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+                <a ui-sref="{{'news.detail'}}({id:x.id})" class="btn btn-blue">查看更多</a>
+                <b></b>
+
+                <p ng-bind="x.title"></p>
+            </section>
+        </div>
+    </div>
 </div>

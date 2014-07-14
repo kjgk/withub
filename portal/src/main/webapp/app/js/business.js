@@ -20,8 +20,8 @@ angular.module('app.business', ['withub'])
                 })
                 .state('business.column.detail', {
                     url: "/:contentId",
-                    templateUrl: "app/template/business-content.html",
-                    controller: 'BusinessContentCtrl'
+                    templateUrl: "app/template/business-column-detail.html",
+                    controller: 'BusinessDetailCtrl'
                 })
 
         }
@@ -54,17 +54,20 @@ angular.module('app.business', ['withub'])
         '$scope', '$state', 'ContentService'
         , function ($scope, $state, ContentService) {
 
-
+            $scope.showColumn = true;
             ContentService.fetchContentList($state.params.columnId).then(function (result) {
-                console.log(result)
                 $scope.contentList = result.items;
-            })
+            });
         }
-
     ])
-    .controller('BusinessContentCtrl', [
-        '$scope', 'BusinessService'
-        , function ($scope, BusinessService) {
-        }
+    .controller('BusinessDetailCtrl', [
+        '$scope', '$state', '$sce', 'ContentService'
+        , function ($scope, $state, $sce, ContentService) {
 
+            $scope.$parent.showColumn = false;
+            ContentService.getContent($state.params.contentId).then(function (result) {
+                $scope.content = result.data;
+                $scope.contentHtml = $sce.trustAsHtml($scope.content.content);
+            });
+        }
     ])

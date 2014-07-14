@@ -25,12 +25,19 @@ public class PortalController {
 
     @RequestMapping(value = "/content/list", method = RequestMethod.GET)
     public void listContent(@RequestParam(value = "columnId") Long columnId,
-                     @RequestParam(value = "page", defaultValue = "1") int pageNumber,
-                     @RequestParam(value = "page.size", defaultValue = "10") int pageSize,
-                     @RequestParam(value = "sortType", defaultValue = "auto") String sortType, ModelMap modelMap) {
+                            @RequestParam(value = "page", defaultValue = "1") int pageNumber,
+                            @RequestParam(value = "page.size", defaultValue = "100") int pageSize,
+                            @RequestParam(value = "sortType", defaultValue = "auto") String sortType, ModelMap modelMap) {
 
         Page<Content> contents = contentService.findByContentColumnId(columnId, pageNumber, pageSize, sortType);
 
         modelMap.put("items", contents.getContent());
+    }
+
+    @RequestMapping(value = "/content/get", method = RequestMethod.GET)
+    public void listContent(@RequestParam(value = "id") Long id, ModelMap modelMap) {
+
+        Content content = contentService.getContent(id);
+        modelMap.put("data", content);
     }
 }
