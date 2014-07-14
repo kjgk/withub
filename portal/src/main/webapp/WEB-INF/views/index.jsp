@@ -77,15 +77,15 @@
 <script src="${ctx}/static/angular-ui/angular-ui-router.min.js"></script>
 <script src="${ctx}/static/angular-ui/ui-utils.js"></script>
 
-<script src="${ctx}/app/dist/withub-protal.min.js"></script>
+<%--<script src="${ctx}/app/dist/withub-protal.min.js"></script>--%>
 
-<%--<script src="${ctx}/app/js/withub.js"></script>--%>
-<%--<script src="${ctx}/app/js/home.js"></script>--%>
-<%--<script src="${ctx}/app/js/contact.js"></script>--%>
-<%--<script src="${ctx}/app/js/intro.js"></script>--%>
-<%--<script src="${ctx}/app/js/business.js"></script>--%>
-<%--<script src="${ctx}/app/js/news.js"></script>--%>
-<%--<script src="${ctx}/app/js/la.js"></script>--%>
-<%--<script src="${ctx}/app/js/app.js"></script>--%>
+<script src="${ctx}/app/js/withub.js"></script>
+<script src="${ctx}/app/js/home.js"></script>
+<script src="${ctx}/app/js/contact.js"></script>
+<script src="${ctx}/app/js/intro.js"></script>
+<script src="${ctx}/app/js/business.js"></script>
+<script src="${ctx}/app/js/news.js"></script>
+<script src="${ctx}/app/js/la.js"></script>
+<script src="${ctx}/app/js/app.js"></script>
 </body>
 </html>

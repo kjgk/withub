@@ -97,4 +97,11 @@ public class ContentService {
     public void setContentColumnDao(ContentColumnDao contentColumnDao) {
         this.contentColumnDao = contentColumnDao;
     }
+
+    public Page<Content> findByContentColumnId(Long columnId, int pageNumber, int pageSize, String sortType) {
+
+        PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
+
+        return contentDao.findByContentColumnId(columnId, pageRequest);
+    }
 }

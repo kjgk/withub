@@ -5,7 +5,7 @@
         </div>
 
         <div class="col-xs-3">
-            <a href="#/news/column/101">
+            <a ui-sref="{{'business.column'}}({columnId:111})">
                 <section class="tag">
                     <i class="fa fa-laptop"></i>
                     <h4>系统集成</h4>
@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col-xs-3">
-            <a href="#/news/column/102">
+            <a ui-sref="{{'business.column'}}({columnId:112})">
                 <section class="tag">
                     <i class="fa fa-users"></i>
                     <h4>软件开发</h4>
@@ -23,7 +23,7 @@
             </a>
         </div>
         <div class="col-xs-3">
-            <a href="#/news/column/103">
+            <a ui-sref="{{'business.column'}}({columnId:113})">
                 <section class="tag">
 
                     <i class="fa fa-life-ring"></i>
@@ -33,7 +33,7 @@
             </a>
         </div>
         <div class="col-xs-3">
-            <a href="#/news/column/104">
+            <a ui-sref="{{'business.column'}}({columnId:114})">
                 <section class="tag">
                     <i class="fa fa-shopping-cart"></i>
                     <h4>产品分销</h4>
@@ -50,7 +50,7 @@
             <h3 class="col-xs-10 col-xs-offset-2" ng-bind="x.subTitle"></h3>
             <h4 class="col-xs-10 col-xs-offset-2" style="line-height: 28px;" ng-bind="x.content"></h4>
 
-            <div class="col-xs-10 col-xs-offset-2"><a ng-href="{{x.url}}" class="btn btn-blue">查看更多</a></div>
+            <div class="col-xs-10 col-xs-offset-2"><a ui-sref="{{'business.column'}}({columnId:x.id})" class="btn btn-blue">查看更多</a></div>
 
         </div>
     </div>

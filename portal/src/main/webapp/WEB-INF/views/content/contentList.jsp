@@ -24,12 +24,13 @@
 	</div>
 	
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th style="width: 60px;">ID</th><th>标题</th><th style="width: 160px;">创建时间</th><th style="width: 120px;">管理</th></tr></thead>
+		<thead><tr><th style="width: 60px;">ID</th><th>标题</th><th>栏目</th><th style="width: 160px;">创建时间</th><th style="width: 120px;">管理</th></tr></thead>
 		<tbody>
 		<c:forEach items="${contents.content}" var="content">
 			<tr>
 				<td><a href="${ctx}/admin/content/update/${content.id}">${content.id}</a></td>
 				<td><a href="${ctx}/admin/content/update/${content.id}">${content.title}</a></td>
+				<td>${content.contentColumn.title}</td>
 				<td><fmt:formatDate value="${content.eventTime}" pattern="yyyy-MM-dd HH:mm" /> </td>
 				<td><a href="${ctx}/admin/content/delete/${content.id}">删除</a></td>
 			</tr>
