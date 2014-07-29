@@ -32,7 +32,7 @@ a:hover {
 }
 
 #header > div {
-    background: url("../images/header.png") no-repeat;
+    background: url("../images/header.jpg") no-repeat;
     padding-top: 72px;
     height: inherit;
 }
@@ -87,7 +87,7 @@ a:hover {
 }
 
 .banner1-home {
-    background: url("../images/banner_1_home.png");
+    background: url("../images/banner_1_home.jpg");
     width: 100%;
     height: 390px;
 }
@@ -100,11 +100,11 @@ a:hover {
     width: 80px;
     height: 80px;
     float: right;
-    background: url("../images/code.png");
+    background: url("../images/code.jpg");
 }
 
 .banner1 {
-    background: url("../images/banner_1.png");
+    background: url("../images/banner_1.jpg");
     width: 100%;
     height: 200px;
 }
@@ -116,7 +116,7 @@ a:hover {
 }
 
 .banner2 > div {
-    background: url("../images/banner_2.png") no-repeat;
+    background: url("../images/banner_2.jpg") no-repeat;
     height: inherit;
 }
 
@@ -127,7 +127,7 @@ a:hover {
 }
 
 .banner3 > div {
-    background: url("../images/banner_3.png") no-repeat;
+    background: url("../images/banner_3.jpg") no-repeat;
     height: inherit;
 }
 
