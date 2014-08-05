@@ -71,6 +71,10 @@ a:hover {
     border-radius: 0;
 }
 
+.navbar-index .navbar-nav {
+    margin: 0 !important;
+}
+
 .navbar-index .navbar-nav > li {
     float: left;
 }

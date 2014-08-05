@@ -5,7 +5,7 @@
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>上海交大慧谷信息产业股份有限公司</title>
     <link href="${ctx}/static/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -19,7 +19,8 @@
 
 <div id="header">
     <div class="container">
-        <a class="btn btn-grey">English</a>
+        <a class="btn btn-grey" ng-show="language!='en'" ng-click="changeLanguage('en')">English</a>
+        <a class="btn btn-grey" ng-show="language!='cn'" ng-click="changeLanguage('cn')">中文</a>
         <a class="btn btn-red">关注</a>
     </div>
 </div>
@@ -28,22 +29,22 @@
     <div class="container">
         <ul class="nav navbar-nav">
             <li ng-class="{active: $state.includes('home')}">
-                <a href="#/home">首页</a>
+                <a href="#/home" translate="HOME"></a>
             </li>
             <li ng-class="{active: $state.includes('intro')}">
-                <a href="#/intro">公司简介</a>
+                <a href="#/intro" translate="INTRO"></a>
             </li>
             <li ng-class="{active: $state.includes('business')}">
-                <a href="#/business">公司业务</a>
+                <a href="#/business"  translate="BUSINESS"></a>
             </li>
             <li ng-class="{active: $state.includes('news')}">
-                <a href="#/news">新闻动态</a>
+                <a href="#/news"  translate="NEWS"></a>
             </li>
             <li ng-class="{active: $state.includes('la')}">
-                <a href="#/la">上市公告</a>
+                <a href="#/la"  translate="LA"></a>
             </li>
             <li ng-class="{active: $state.includes('contact')}">
-                <a href="#/contact">联系我们</a>
+                <a href="#/contact"  translate="CONTACT"></a>
             </li>
         </ul>
     </div>
@@ -79,7 +80,9 @@
 <![endif]-->
 
 <script>
-    ctx = '${ctx}';
+    PageContext = {
+        path: '${ctx}'
+    };
 </script>
 
 <script src="${ctx}/static/underscore/underscore.min.js"></script>
@@ -88,17 +91,19 @@
 <script src="${ctx}/static/angular-ui/ui-bootstrap-tpls-0.11.0.min.js"></script>
 <script src="${ctx}/static/angular-ui/angular-ui-router.min.js"></script>
 <script src="${ctx}/static/angular-ui/ui-utils.js"></script>
+<script src="${ctx}/static/angular-translate/angular-translate.min.js"></script>
+<script src="${ctx}/static/angular-local-storage/angular-local-storage.min.js"></script>
 
-<script src="${ctx}/app/dist/withub-protal.min.js"></script>
+<%--<script src="${ctx}/app/dist/withub-protal.min.js"></script>--%>
 
-<%--<script src="${ctx}/app/js/withub.js"></script>
+<script src="${ctx}/app/js/withub.js"></script>
 <script src="${ctx}/app/js/home.js"></script>
 <script src="${ctx}/app/js/contact.js"></script>
 <script src="${ctx}/app/js/intro.js"></script>
 <script src="${ctx}/app/js/business.js"></script>
 <script src="${ctx}/app/js/news.js"></script>
 <script src="${ctx}/app/js/la.js"></script>
-<script src="${ctx}/app/js/app.js"></script>--%>
+<script src="${ctx}/app/js/app.js"></script>
 
 <!--[if lte IE 7]>
 <script>

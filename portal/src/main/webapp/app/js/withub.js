@@ -1,6 +1,12 @@
+if (!PageContext) {
+    PageContext = {
+        path: ''
+    }
+}
 angular.module('withub', [
-    'ui.router'
-
+    'ui.router',
+    'pascalprecht.translate',
+    'LocalStorageModule'
 ])
     .factory('ContentService', ['$q', '$http',
         function ($q, $http) {
@@ -8,7 +14,7 @@ angular.module('withub', [
                 fetchContentList: function (columnId, page) {
                     var defer = $q.defer();
                     $http({
-                        url: ctx + '/content/list.do',
+                        url: PageContext.path + '/content/list.do',
                         params: {columnId: columnId},
                         method: 'GET'
                     }).success(function (response) {
@@ -19,7 +25,7 @@ angular.module('withub', [
                 getContent: function (id) {
                     var defer = $q.defer();
                     $http({
-                        url: ctx + '/content/get.do',
+                        url: PageContext.path + '/content/get.do',
                         params: {id: id},
                         method: 'GET'
                     }).success(function (response) {
