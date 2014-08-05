@@ -6,7 +6,7 @@ angular.module('app.news', ['withub'])
                 .state('news', {
                     url: "/news",
                     abstract: true,
-                    template: "<ui-view></ui-view>"
+                    template: "<div ui-view></div>"
                 })
                 .state('news.home', {
                     url: "",

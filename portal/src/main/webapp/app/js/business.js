@@ -6,7 +6,7 @@ angular.module('app.business', ['withub'])
                 .state('business', {
                     url: "/business",
                     abstract: true,
-                    template: "<ui-view></ui-view>"
+                    template: "<div ui-view></div>"
                 })
                 .state('business.home', {
                     url: "",

@@ -2,24 +2,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html ng-app="app">
+<html lang="en" ng-app="app">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>上海交大慧谷信息产业股份有限公司</title>
     <link href="${ctx}/static/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="${ctx}/static/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="${ctx}/static/styles/app.css" type="text/css" rel="stylesheet">
-    <script>
-        ctx = '${ctx}';
-    </script>
+    <!--[if lte IE 8]>
+    <link href="${ctx}/static/styles/ie8.css" type="text/css" rel="stylesheet">
+    <![endif]-->
 </head>
 <body ng-controller="MainCtrl">
 
-<header id="header">
+<div id="header">
     <div class="container">
         <a class="btn btn-grey">English</a>
         <a class="btn btn-red">关注</a>
     </div>
-</header>
+</div>
 
 <div class="navbar navbar-index">
     <div class="container">
@@ -57,18 +60,27 @@
 </div>
 
 <div id="main">
-    <ui-view></ui-view>
+    <div ui-view></div>
 </div>
 
 <div class="banner3">
     <div class="container"></div>
 </div>
 
-<footer id="footer">
+<div id="footer">
     <div class="container">
         <div class="pull-right"><label>版权所有：上海交大慧谷信息产业股份有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;沪ICP备05038349号</label></div>
     </div>
-</footer>
+</div>
+
+<!--[if lte IE 8]>
+<script src="${ctx}/static/respond/respond.min.js"></script>
+<script src="${ctx}/static/html5shiv/html5shiv.min.js"></script>
+<![endif]-->
+
+<script>
+    ctx = '${ctx}';
+</script>
 
 <script src="${ctx}/static/underscore/underscore.min.js"></script>
 <script src="${ctx}/static/angular/angular.min.js"></script>
@@ -79,13 +91,19 @@
 
 <script src="${ctx}/app/dist/withub-protal.min.js"></script>
 
-<%--<script src="${ctx}/app/js/withub.js"></script>--%>
-<%--<script src="${ctx}/app/js/home.js"></script>--%>
-<%--<script src="${ctx}/app/js/contact.js"></script>--%>
-<%--<script src="${ctx}/app/js/intro.js"></script>--%>
-<%--<script src="${ctx}/app/js/business.js"></script>--%>
-<%--<script src="${ctx}/app/js/news.js"></script>--%>
-<%--<script src="${ctx}/app/js/la.js"></script>--%>
-<%--<script src="${ctx}/app/js/app.js"></script>--%>
+<%--<script src="${ctx}/app/js/withub.js"></script>
+<script src="${ctx}/app/js/home.js"></script>
+<script src="${ctx}/app/js/contact.js"></script>
+<script src="${ctx}/app/js/intro.js"></script>
+<script src="${ctx}/app/js/business.js"></script>
+<script src="${ctx}/app/js/news.js"></script>
+<script src="${ctx}/app/js/la.js"></script>
+<script src="${ctx}/app/js/app.js"></script>--%>
+
+<!--[if lte IE 7]>
+<script>
+    document.getElementsByTagName('body')[0].innerHTML = '您使用的浏览器版本过低，建议立即升级到 Internet Explorer 8 或 Google Chrome';
+</script>
+<![endif]-->
 </body>
 </html>

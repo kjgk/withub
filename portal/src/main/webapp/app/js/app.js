@@ -8,13 +8,10 @@ angular.module('app', ['withub', 'app.home', 'app.contact', 'app.intro', 'app.bu
 
     .controller('MainCtrl', ['$rootScope', '$scope', '$timeout', '$state'
         , function ($rootScope, $scope, $timeout, $state) {
-
             $rootScope.ctx = ctx;
             $rootScope.$state = $state;
             $rootScope.$on('$stateChangeSuccess', function () {
 
-//                console.log(angular.element("body"))
             })
         }
-
     ])
