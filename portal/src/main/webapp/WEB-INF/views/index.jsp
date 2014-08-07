@@ -96,16 +96,16 @@
 <script src="${ctx}/static/angular-translate/angular-translate.min.js"></script>
 <script src="${ctx}/static/angular-local-storage/angular-local-storage.min.js"></script>
 
-<%--<script src="${ctx}/app/dist/withub-protal.min.js"></script>--%>
+<script src="${ctx}/app/dist/withub-protal.min.js"></script>
 
-<script src="${ctx}/app/js/withub.js"></script>
-<script src="${ctx}/app/js/home.js"></script>
-<script src="${ctx}/app/js/contact.js"></script>
-<script src="${ctx}/app/js/intro.js"></script>
-<script src="${ctx}/app/js/business.js"></script>
-<script src="${ctx}/app/js/news.js"></script>
-<script src="${ctx}/app/js/la.js"></script>
-<script src="${ctx}/app/js/app.js"></script>
+<%--<script src="${ctx}/app/js/withub.js"></script>--%>
+<%--<script src="${ctx}/app/js/home.js"></script>--%>
+<%--<script src="${ctx}/app/js/contact.js"></script>--%>
+<%--<script src="${ctx}/app/js/intro.js"></script>--%>
+<%--<script src="${ctx}/app/js/business.js"></script>--%>
+<%--<script src="${ctx}/app/js/news.js"></script>--%>
+<%--<script src="${ctx}/app/js/la.js"></script>--%>
+<%--<script src="${ctx}/app/js/app.js"></script>--%>
 
 <!--[if lte IE 7]>
 <script>
