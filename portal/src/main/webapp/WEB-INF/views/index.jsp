@@ -74,6 +74,7 @@
     </div>
 </div>
 
+<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 <!--[if lte IE 8]>
 <script src="${ctx}/static/respond/respond.min.js"></script>
 <script src="${ctx}/static/html5shiv/html5shiv.min.js"></script>

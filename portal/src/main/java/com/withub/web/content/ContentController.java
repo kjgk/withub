@@ -16,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springside.modules.web.Servlets;
 
@@ -26,7 +27,7 @@ import java.util.Map;
 
 /**
  * Content管理的Controller, 使用Restful风格的Urls:
- *
+ * <p/>
  * List page : GET /content/
  * Create page : GET /content/create
  * Create action : POST /content/create
@@ -81,13 +82,14 @@ public class ContentController {
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String create(@Valid Content newContent, RedirectAttributes redirectAttributes) {
+    public String create(@Valid Content newContent
+            , @RequestParam(value = "attachment") CommonsMultipartFile attachment, RedirectAttributes redirectAttributes) {
         User user = new User(getCurrentUserId());
         newContent.setUser(user);
         newContent.setPublish(1);
         newContent.setEventTime(new Date());
 
-        contentService.saveContent(newContent);
+        contentService.saveContent(newContent, attachment);
         redirectAttributes.addFlashAttribute("message", "创建成功");
         return "redirect:/admin/content";
     }
@@ -101,8 +103,9 @@ public class ContentController {
     }
 
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    public String update(@Valid @ModelAttribute("content") Content content, RedirectAttributes redirectAttributes) {
-        contentService.saveContent(content);
+    public String update(@Valid @ModelAttribute("content") Content content
+            , @RequestParam(value = "attachment") CommonsMultipartFile attachment, RedirectAttributes redirectAttributes) {
+        contentService.saveContent(content, attachment);
         redirectAttributes.addFlashAttribute("message", "更新成功");
         return "redirect:/admin/content";
     }

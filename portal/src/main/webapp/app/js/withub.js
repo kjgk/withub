@@ -8,14 +8,20 @@ angular.module('withub', [
     'pascalprecht.translate',
     'LocalStorageModule'
 ])
+    .constant('NEWS_COLUMN_ID', 101)  //新闻的ID
+    .constant('LA_COLUMN_ID', 102)  //上市公告的ID
     .factory('ContentService', ['$q', '$http',
         function ($q, $http) {
             return {
-                fetchContentList: function (columnId, page) {
+                fetchContentList: function (columnId, page, pageSize) {
                     var defer = $q.defer();
                     $http({
                         url: PageContext.path + '/content/list.do',
-                        params: {columnId: columnId},
+                        params: {
+                            columnId: columnId,
+                            page: page,
+                            'page.size': pageSize
+                        },
                         method: 'GET'
                     }).success(function (response) {
                         defer.resolve(response);

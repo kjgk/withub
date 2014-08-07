@@ -4,7 +4,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <div id="header">
 	<div id="title">
-	    <h1><a href="${ctx}">门户网站</a><small>--后台管理</small>
+	    <h1><a href="${ctx}/admin/content"><small>网站后台管理</small></a>
 	    <shiro:user>
 			<div class="btn-group pull-right">
 				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

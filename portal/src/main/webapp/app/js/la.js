@@ -11,30 +11,31 @@ angular.module('app.la', ['withub'])
         }
     ])
     .controller('LaCtrl', [
-        '$scope'
-        , function ($scope) {
+        '$scope', 'ContentService', 'LA_COLUMN_ID'
+        , function ($scope, ContentService, columnId) {
 
-            $scope.noticeList = [
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()},
-                {title: '财务报表/环境、社会及管治资料 季度报告', eventTime: new Date()}
-            ];
+            $scope.contentList = [];
+
+            $scope.loading = false, $scope.complete = false;
+
+            var page = 0, pageSize = 20;
+
+            $scope.fetchContentList = function () {
+                $scope.loading = true;
+                ContentService.fetchContentList(columnId, ++page, pageSize + 1).then(function (response) {
+                    var items = response.items;
+                    if (items.length < pageSize) {
+                        $scope.complete = true;
+                    } else {
+                        items.pop();
+                    }
+                    $scope.contentList = $scope.contentList.concat(items);
+
+                }).finally(function () {
+                    $scope.loading = false;
+                })
+            }
+
+            $scope.fetchContentList();
         }
-
     ])

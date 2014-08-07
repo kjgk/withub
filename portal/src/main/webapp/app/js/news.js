@@ -22,13 +22,36 @@ angular.module('app.news', ['withub'])
         }
     ])
     .controller('NewsCtrl', [
-        '$scope', '$state', 'ContentService'
-        , function ($scope, $state, ContentService) {
-            ContentService.fetchContentList(101).then(function (result) {
-                $scope.contentList = result.items;
-                $scope.roll = $scope.contentList[0];
-                $scope.contentList.splice(0, 1)
-            });
+        '$scope', '$state', 'ContentService', 'NEWS_COLUMN_ID'
+        , function ($scope, $state, ContentService, columnId) {
+
+            $scope.contentList = [];
+
+            $scope.loading = false, $scope.complete = false;
+
+            var page = 0, pageSize = 20;
+
+            $scope.fetchContentList = function () {
+                $scope.loading = true;
+                ContentService.fetchContentList(columnId, ++page, pageSize + (page == 1 ? 2 : 1)).then(function (response) {
+                    var items = response.items;
+                    if (items.length < pageSize) {
+                        $scope.complete = true;
+                    } else {
+                        items.pop();
+                    }
+                    if (page == 1) {
+                        $scope.roll = items[0];
+                        items.splice(0, 1);
+                    }
+                    $scope.contentList = $scope.contentList.concat(items);
+
+                }).finally(function () {
+                    $scope.loading = false;
+                })
+            }
+
+            $scope.fetchContentList();
         }
     ])
     .controller('NewsDetailCtrl', [

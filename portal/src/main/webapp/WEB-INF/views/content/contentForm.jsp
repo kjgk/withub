@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<form id="inputForm" action="${ctx}/admin/content/${action}" method="post" >
+<form id="inputForm" enctype="multipart/form-data" action="${ctx}/admin/content/${action}" method="post">
     <input type="hidden" name="id" value="${content.id}"/>
     <fieldset>
         <legend>
@@ -38,17 +38,14 @@
                 <textarea name="content" class="input-large">${content.content}</textarea>
             </div>
         </div>
-        <%--<div class="control-group">--%>
-            <%--<label class="control-label">发布状态:</label>--%>
-            <%--<div class="controls">--%>
-                <%--<label class="radio inline">--%>
-                    <%--<input type="radio" name="content_publish" value="1"> 已发布--%>
-                <%--</label>--%>
-                <%--<label class="radio inline">--%>
-                    <%--<input type="radio" name="content_publish" value="0" checked> 未发布--%>
-                <%--</label>--%>
-            <%--</div>--%>
-        <%--</div>--%>
+        <div class="control-group">
+            <label class="control-label">附件:</label>
+
+            <div class="controls">
+                <input name="attachment" class="input-block-level" type="file">
+                <a href="${ctx}/content/attachment/${content.id}" target="_blank">${content.attachmentName}</a>
+            </div>
+        </div>
         <div class="form-actions">
             <input id="submit_btn" class="btn btn-primary" type="submit" value="提交"/>&nbsp;
             <input id="cancel_btn" class="btn" type="button" value="返回" onclick="history.back()"/>

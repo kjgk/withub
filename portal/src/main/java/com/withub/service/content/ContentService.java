@@ -10,6 +10,7 @@ import com.withub.entity.ContentColumn;
 import com.withub.repository.ContentColumnDao;
 import com.withub.repository.ContentDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -17,12 +18,15 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 import org.springside.modules.persistence.SearchFilter.Operator;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 // Spring Bean的标识.
 @Component
@@ -34,6 +38,9 @@ public class ContentService {
 
     private ContentColumnDao contentColumnDao;
 
+    @Value("${upload.path}")
+    private String uploadPath;
+
     public Content getContent(Long id) {
         return contentDao.findOne(id);
     }
@@ -43,40 +50,56 @@ public class ContentService {
         return contentColumnDao.findOne(id);
     }
 
-    public void saveContent(Content entity) {
-        entity.setContentColumn(getContentColumn(entity.getContentColumnId()));
-		contentDao.save(entity);
-	}
+    public void saveContent(Content entity, CommonsMultipartFile attachment) {
 
-	public void deleteContent(Long id) {
-		contentDao.delete(id);
-	}
+        entity.setContentColumn(getContentColumn(entity.getContentColumnId()));
+
+        if (attachment != null) {
+            String fileName = attachment.getFileItem().getName();
+            String uuid = UUID.randomUUID().toString();
+            try {
+                attachment.getFileItem().write(new File(uploadPath + "/" + uuid));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            entity.setAttachmentName(fileName);
+            entity.setAttachmentFileName(uuid);
+        }
+
+        contentDao.save(entity);
+
+
+    }
+
+    public void deleteContent(Long id) {
+        contentDao.delete(id);
+    }
 
     public List<ContentColumn> getAllContentColumn() {
         return (List<ContentColumn>) contentColumnDao.findAll();
     }
 
-	public Page<Content> getUserContent(Long userId, Map<String, Object> searchParams, int pageNumber, int pageSize,
-			String sortType) {
-		PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
-		Specification<Content> spec = buildSpecification(userId, searchParams);
+    public Page<Content> getUserContent(Long userId, Map<String, Object> searchParams, int pageNumber, int pageSize,
+                                        String sortType) {
+        PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<Content> spec = buildSpecification(userId, searchParams);
 
-		return contentDao.findAll(spec, pageRequest);
-	}
+        return contentDao.findAll(spec, pageRequest);
+    }
 
-	/**
-	 * 创建分页请求.
-	 */
-	private PageRequest buildPageRequest(int pageNumber, int pagzSize, String sortType) {
-		Sort sort = null;
-		if ("auto".equals(sortType)) {
-			sort = new Sort(Direction.DESC, "id");
-		} else if ("title".equals(sortType)) {
-			sort = new Sort(Direction.ASC, "title");
-		}
+    /**
+     * 创建分页请求.
+     */
+    private PageRequest buildPageRequest(int pageNumber, int pagzSize, String sortType) {
+        Sort sort = null;
+        if ("auto".equals(sortType)) {
+            sort = new Sort(Direction.DESC, "id");
+        } else if ("title".equals(sortType)) {
+            sort = new Sort(Direction.ASC, "title");
+        }
 
-		return new PageRequest(pageNumber - 1, pagzSize, sort);
-	}
+        return new PageRequest(pageNumber - 1, pagzSize, sort);
+    }
 
     /**
      * 创建动态查询条件组合.
@@ -103,5 +126,9 @@ public class ContentService {
         PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
 
         return contentDao.findByContentColumnId(columnId, pageRequest);
+    }
+
+    public String getUploadPath() {
+        return uploadPath;
     }
 }

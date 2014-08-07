@@ -24,6 +24,9 @@ public class Content extends IdEntity {
     private Integer publish;
     private Date eventTime;
 
+    private String attachmentFileName;
+    private String attachmentName;
+
 	// JSR303 BeanValidator的校验规则
 	@NotBlank
 	public String getTitle() {
@@ -92,5 +95,21 @@ public class Content extends IdEntity {
 
     public void setEventTime(Date eventTime) {
         this.eventTime = eventTime;
+    }
+
+    public String getAttachmentFileName() {
+        return attachmentFileName;
+    }
+
+    public void setAttachmentFileName(String attachmentFileName) {
+        this.attachmentFileName = attachmentFileName;
+    }
+
+    public String getAttachmentName() {
+        return attachmentName;
+    }
+
+    public void setAttachmentName(String attachmentName) {
+        this.attachmentName = attachmentName;
     }
 }

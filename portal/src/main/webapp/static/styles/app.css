@@ -191,6 +191,22 @@ a:hover {
     border-color: #9a9a9a;
 }
 
+.btn-more {
+    color: #797979;
+    background-color: #eaeaea;
+    border-color: #eaeaea;
+}
+
+.btn-more:hover, .btn-more:focus, .btn-more:active, .btn-more.active, .open > .dropdown-toggle.btn-more {
+    color: #797979;
+    background-color: #eaeaea;
+    border-color: #eaeaea;
+}
+
+.btn{
+    outline: none !important;
+}
+
 .box-0 > div {
     float: left;
     margin-right: 12px;
@@ -494,5 +510,10 @@ a:hover {
 
 .news-detail .content {
     font-size: 16px;
+}
+
+.empty{
+    font-size: 20px;
+    color: #999999;
 }
 

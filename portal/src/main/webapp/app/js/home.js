@@ -11,21 +11,16 @@ angular.module('app.home', ['withub'])
         }
     ])
     .controller('HomeCtrl', [
-        '$scope', 'BusinessService', 'ContentService'
-        , function ($scope, BusinessService, ContentService) {
+        '$scope', 'BusinessService', 'ContentService', 'NEWS_COLUMN_ID', 'LA_COLUMN_ID'
+        , function ($scope, BusinessService, ContentService, newsColumnId, laColumnId) {
 
             /* 公司公告 */
-
-
-            ContentService.fetchContentList(101).then(function (result) {
-                $scope.noticeList1 = [result.items[0], result.items[1] , result.items[2]]
+            ContentService.fetchContentList(newsColumnId, 1, 3).then(function (result) {
+                $scope.contentList1 = result.items;
             });
-
-            $scope.noticeList2 = [
-                {eventTime: '2014-07-07 16:22', title: '董事名单和他们的地位和作用'},
-                {eventTime: '2014-07-07 16:22', title: '股东周年大会的結果 / 在股东批准的情況下重选或委任董事 / 更换董事或重要行政职能或职责'},
-                {eventTime: '2014-07-07 16:22', title: '发出通函后重大资料 / 在股东批准的情況下重选或委任董事'}
-            ]
+            ContentService.fetchContentList(laColumnId, 1, 3).then(function (result) {
+                $scope.contentList2 = result.items;
+            });
 
             /* 公司业务 */
             $scope.businessList = BusinessService.getBusinessList();
