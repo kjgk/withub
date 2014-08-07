@@ -78,6 +78,7 @@
 <!--[if lte IE 8]>
 <script src="${ctx}/static/respond/respond.min.js"></script>
 <script src="${ctx}/static/html5shiv/html5shiv.min.js"></script>
+<script src="${ctx}/static/ie-better/ieBetter-min.js"></script>
 <![endif]-->
 
 <script>
@@ -108,7 +109,7 @@
 
 <!--[if lte IE 7]>
 <script>
-    document.getElementsByTagName('body')[0].innerHTML = '您使用的浏览器版本过低，建议立即升级到 Internet Explorer 8 或 Google Chrome';
+    document.getElementsByTagName('body')[0].innerHTML = '您使用的浏览器版本过低，建议立即升级到 Google Chrome、Internet Explorer 8 或更高版本';
 </script>
 <![endif]-->
 </body>

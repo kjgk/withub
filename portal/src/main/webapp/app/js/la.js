@@ -31,7 +31,6 @@ angular.module('app.la', ['withub'])
                     }
                     $scope.contentList = $scope.contentList.concat(items);
 
-                }).finally(function () {
                     $scope.loading = false;
                 })
             }

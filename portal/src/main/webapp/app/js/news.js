@@ -46,7 +46,6 @@ angular.module('app.news', ['withub'])
                     }
                     $scope.contentList = $scope.contentList.concat(items);
 
-                }).finally(function () {
                     $scope.loading = false;
                 })
             }
