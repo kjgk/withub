@@ -56,6 +56,10 @@ public class PortalController {
 
         Content content = contentService.getContent(id);
 
+        if (content == null) {
+            throw new Exception("附件不存在！");
+        }
+
         File file = new File(contentService.getUploadPath() + "/" + content.getAttachmentFileName());
         InputStream inputStream = new FileInputStream(file);
 

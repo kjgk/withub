@@ -16,6 +16,6 @@
 </head>
 
 <body>
-	<h2>500 - 系统发生内部错误.</h2>
+	<h2><%= exception.getMessage()%></h2>
 </body>
 </html>
