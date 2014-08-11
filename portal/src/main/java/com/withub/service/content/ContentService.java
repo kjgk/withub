@@ -24,6 +24,8 @@ import org.springside.modules.persistence.SearchFilter;
 import org.springside.modules.persistence.SearchFilter.Operator;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -55,15 +57,20 @@ public class ContentService {
         entity.setContentColumn(getContentColumn(entity.getContentColumnId()));
 
         if (attachment != null) {
-            String fileName = attachment.getFileItem().getName();
+            String attachmentName = attachment.getFileItem().getName();
             String uuid = UUID.randomUUID().toString();
+            String folderName = "/" + new SimpleDateFormat("yyyyMM").format(new Date());
+            File folder = new File(uploadPath + folderName);
+            if (!folder.exists()) {
+                folder.mkdir();
+            }
             try {
-                attachment.getFileItem().write(new File(uploadPath + "/" + uuid));
+                attachment.getFileItem().write(new File(folder.getPath() + "/" + uuid));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            entity.setAttachmentName(fileName);
-            entity.setAttachmentFileName(uuid);
+            entity.setAttachmentName(attachmentName);
+            entity.setAttachmentFileName(folderName + "/" + uuid);
         }
 
         contentDao.save(entity);
