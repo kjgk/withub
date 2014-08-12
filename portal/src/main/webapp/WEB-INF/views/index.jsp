@@ -78,7 +78,7 @@
 <!--[if lte IE 8]>
 <script src="${ctx}/static/respond/respond.min.js"></script>
 <script src="${ctx}/static/html5shiv/html5shiv.min.js"></script>
-<script src="${ctx}/static/ie-better/ieBetter-min.js"></script>
+<script src="${ctx}/static/es5-shim/es5-shim.min.js"></script>
 <![endif]-->
 
 <script>
