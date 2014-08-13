@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>上海交大慧谷信息产业股份有限公司</title>
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="${ctx}/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="${ctx}/static/favicon.ico" type="image/x-icon">
     <link href="${ctx}/static/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="${ctx}/static/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="${ctx}/static/styles/app.css" type="text/css" rel="stylesheet">

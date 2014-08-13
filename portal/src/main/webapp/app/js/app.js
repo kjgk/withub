@@ -29,13 +29,18 @@ angular.module('app', ['withub', 'app.home', 'app.contact', 'app.intro', 'app.bu
         }
     ])
 
-    .controller('MainCtrl', ['$rootScope', '$scope', '$timeout', '$state', '$translate', 'localStorageService'
-        , function ($rootScope, $scope, $timeout, $state, $translate, localStorageService) {
+    .controller('MainCtrl', ['$rootScope', '$scope', '$timeout', '$state', '$location', '$translate', 'localStorageService'
+        , function ($rootScope, $scope, $timeout, $state, $location, $translate, localStorageService) {
 
             $rootScope.contextPath = PageContext.path;
             $rootScope.$state = $state;
             $rootScope.$on('$stateChangeSuccess', function () {
 
+            });
+            $rootScope.$on('$stateChangeStart', function (event, newState) {
+                if ($scope.language == 'en' && newState.name != 'la') {
+                    $location.path('la');
+                }
             });
 
             $rootScope.language = localStorageService.get('language') || 'cn';
@@ -44,8 +49,8 @@ angular.module('app', ['withub', 'app.home', 'app.contact', 'app.intro', 'app.bu
                 $rootScope.language = key;
                 localStorageService.set('language', key);
 
-                if ($state.current.name != 'la') {
-                    $state.transitionTo('la');
+                if ($scope.language == 'en' && $state.current.name != 'la') {
+                    $location.path('la');
                 }
             };
 
