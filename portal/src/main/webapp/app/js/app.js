@@ -10,7 +10,9 @@ angular.module('app', ['withub', 'app.home', 'app.contact', 'app.intro', 'app.bu
                 BUSINESS: 'Services',
                 NEWS: 'News',
                 LA: 'Announcements',
-                CONTACT: 'Contact'
+                CONTACT: 'Contact',
+                MORE: 'More',
+                LOADING: ' Loading... '
             });
 
             $translateProvider.translations('cn', {
@@ -19,7 +21,9 @@ angular.module('app', ['withub', 'app.home', 'app.contact', 'app.intro', 'app.bu
                 BUSINESS: '公司业务',
                 NEWS: '新闻动态',
                 LA: '上市公告',
-                CONTACT: '联系我们'
+                CONTACT: '联系我们',
+                MORE: '加载更多',
+                LOADING: ' 正在加载，请稍候... '
             });
 
         }
@@ -32,15 +36,23 @@ angular.module('app', ['withub', 'app.home', 'app.contact', 'app.intro', 'app.bu
             $rootScope.$state = $state;
             $rootScope.$on('$stateChangeSuccess', function () {
 
-            })
+            });
 
             $rootScope.language = localStorageService.get('language') || 'cn';
             $rootScope.changeLanguage = function (key) {
                 $translate.use(key);
                 $rootScope.language = key;
-                localStorageService.set('language', key)
+                localStorageService.set('language', key);
+
+                if ($state.current.name != 'la') {
+                    $state.transitionTo('la');
+                }
             };
 
             $translate.use($rootScope.language);
+
+            $scope.showMenu = function () {
+                return $scope.language == 'cn';
+            }
         }
-    ])
+    ]);

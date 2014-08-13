@@ -28,22 +28,22 @@
 <div class="navbar navbar-index">
     <div class="container">
         <ul class="nav navbar-nav">
-            <li ng-class="{active: $state.includes('home')}">
+            <li ng-show="showMenu()" ng-class="{active: $state.includes('home')}">
                 <a href="#/home" translate="HOME"></a>
             </li>
-            <li ng-class="{active: $state.includes('intro')}">
+            <li ng-show="showMenu()" ng-class="{active: $state.includes('intro')}">
                 <a href="#/intro" translate="INTRO"></a>
             </li>
-            <li ng-class="{active: $state.includes('business')}">
+            <li ng-show="showMenu()" ng-class="{active: $state.includes('business')}">
                 <a href="#/business"  translate="BUSINESS"></a>
             </li>
-            <li ng-class="{active: $state.includes('news')}">
+            <li ng-show="showMenu()" ng-class="{active: $state.includes('news')}">
                 <a href="#/news"  translate="NEWS"></a>
             </li>
             <li ng-class="{active: $state.includes('la')}">
                 <a href="#/la"  translate="LA"></a>
             </li>
-            <li ng-class="{active: $state.includes('contact')}">
+            <li ng-show="showMenu()" ng-class="{active: $state.includes('contact')}">
                 <a href="#/contact"  translate="CONTACT"></a>
             </li>
         </ul>

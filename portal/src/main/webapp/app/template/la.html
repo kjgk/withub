@@ -17,14 +17,17 @@
                 <li ng-repeat="x in contentList">
                     <i class="fa fa-file-pdf-o"></i>
                     <span ng-bind="x.eventTime|date:'yyyy-MM-dd HH:mm'"></span>
-                    <a href="content/attachment/{{x.id}}" target="_blank" ng-bind="x.title"></a>
+                    <a href="content/attachment/{{x.id}}" title="{{x.title}}" target="_blank" ng-bind="x.title"></a>
                 </li>
             </ul>
 
             <label class="empty" ng-show="contentList.length==0">暂无数据</label>
 
-            <label ng-show="!loading&&!complete" ng-click="fetchContentList()" class="btn btn-block btn-more"> 加载更多 </label>
-            <label ng-show="loading" class="btn btn-block btn-more disabled"><i class="fa fa-spin fa-refresh fa-fw"></i> 正在加载，请稍候... </label>
+            <label ng-show="!loading&&!complete" ng-click="fetchContentList()" class="btn btn-block btn-more" translate="MORE"></label>
+            <label ng-show="loading" class="btn btn-block btn-more disabled">
+                <i class="fa fa-spin fa-refresh fa-fw"></i>
+                <span translate="LOADING"></span>
+            </label>
         </div>
     </div>
 </div>

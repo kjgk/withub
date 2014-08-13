@@ -365,6 +365,9 @@ a:hover {
     margin-left: 48px;
     line-height: 32px;
     font-size: 18px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .dl-1 dt {
