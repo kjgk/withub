@@ -62,7 +62,7 @@ public class ContentService {
 
         entity.setContentColumn(getContentColumn(entity.getContentColumnId()));
 
-        if (attachment != null) {
+        if (attachment != null && !attachment.isEmpty()) {
             String attachmentName = attachment.getFileItem().getName();
             String uuid = UUID.randomUUID().toString();
             String folderName = "/" + new SimpleDateFormat("yyyyMM").format(new Date());

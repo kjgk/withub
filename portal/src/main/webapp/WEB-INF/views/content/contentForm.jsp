@@ -17,7 +17,7 @@
             <label for="content_title" class="control-label">标题:</label>
 
             <div class="controls">
-                <input type="text" id="content_title" name="title" value="${content.title}" class="input-block-level required" minlength="3"/>
+                <input type="text" id="content_title" name="title" value="${content.title}" class="input-block-level required" minlength="1" maxlength="200"/>
             </div>
         </div>
         <div class="control-group">
