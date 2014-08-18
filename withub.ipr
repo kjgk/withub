@@ -58,16 +58,17 @@
             <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.0" />
             <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.3.1" />
             <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.3.1" />
+            <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.1.24" />
             <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.1" />
             <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.1" />
             <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.6" />
             <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.6" />
             <element id="library" level="project" name="Maven: com.googlecode.log4jdbc:log4jdbc:1.2" />
             <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.2.1" />
-            <element id="library" level="project" name="Maven: com.google.guava:guava:16.0.1" />
-            <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.6" />
+            <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
             <element id="library" level="project" name="Maven: commons-io:commons-io:2.2" />
-            <element id="library" level="project" name="Maven: org.apache.commons:commons-exec:1.1" />
+            <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+            <element id="library" level="project" name="Maven: com.google.guava:guava:16.0.1" />
           </element>
         </element>
       </root>
@@ -280,7 +281,7 @@
     <file url="file://$PROJECT_DIR$/portal/src/main/resources/sql/mysql/schema.sql" dialect="MySQL" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
     <library name="Maven: antlr:antlr:2.7.7">
@@ -325,6 +326,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.1.1/logback-core-1.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.alibaba:fastjson:1.1.24">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.1.24/fastjson-1.1.24.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.1.24/fastjson-1.1.24-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.1.24/fastjson-1.1.24-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.0">
@@ -415,15 +427,26 @@
         <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: commons-codec:commons-codec:1.6">
+    <library name="Maven: commons-codec:commons-codec:1.9">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.6/commons-codec-1.6.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.9/commons-codec-1.9.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.6/commons-codec-1.6-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.9/commons-codec-1.9-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.6/commons-codec-1.6-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.9/commons-codec-1.9-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: commons-fileupload:commons-fileupload:1.3.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-io:commons-io:2.2">
